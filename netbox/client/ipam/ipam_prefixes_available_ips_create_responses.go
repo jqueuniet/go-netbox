@@ -108,7 +108,7 @@ func (o *IpamPrefixesAvailableIpsCreateCreated) String() string {
 	return fmt.Sprintf("[POST /ipam/prefixes/{id}/available-ips/][%d] ipamPrefixesAvailableIpsCreateCreated  %+v", 201, o.Payload)
 }
 
-func (o *IpamPrefixesAvailableIpsCreateCreated) GetPayload() []*models.IPAddress {
+func (o *IpamPrefixesAvailableIpsCreateCreated) GetPayload() *models.IPAddress {
 	return o.Payload
 }
 
