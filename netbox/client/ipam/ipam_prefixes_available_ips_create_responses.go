@@ -67,7 +67,7 @@ IpamPrefixesAvailableIpsCreateCreated describes a response with status code 201,
 IpamPrefixesAvailableIpsCreateCreated ipam prefixes available ips create created
 */
 type IpamPrefixesAvailableIpsCreateCreated struct {
-	Payload []*models.IPAddress
+	Payload *models.IPAddress
 }
 
 // IsSuccess returns true when this ipam prefixes available ips create created response has a 2xx status code
