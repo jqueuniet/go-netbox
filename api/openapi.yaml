@@ -131727,7 +131727,6 @@ components:
       - name
       - primary_ip
       - url
-      - virtual_disk_count
     VirtualMachineWithConfigContextRequest:
       type: object
       description: Adds support for custom fields and tags.

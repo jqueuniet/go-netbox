@@ -49,7 +49,7 @@ type VirtualMachineWithConfigContext struct {
 	Created              NullableTime           `json:"created"`
 	LastUpdated          NullableTime           `json:"last_updated"`
 	InterfaceCount       int32                  `json:"interface_count"`
-	VirtualDiskCount     int32                  `json:"virtual_disk_count"`
+	VirtualDiskCount     *int32                 `json:"virtual_disk_count,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -59,7 +59,7 @@ type _VirtualMachineWithConfigContext VirtualMachineWithConfigContext
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVirtualMachineWithConfigContext(id int32, url string, display string, name string, primaryIp NullableNestedIPAddress, configContext interface{}, created NullableTime, lastUpdated NullableTime, interfaceCount int32, virtualDiskCount int32) *VirtualMachineWithConfigContext {
+func NewVirtualMachineWithConfigContext(id int32, url string, display string, name string, primaryIp NullableNestedIPAddress, configContext interface{}, created NullableTime, lastUpdated NullableTime, interfaceCount int32) *VirtualMachineWithConfigContext {
 	this := VirtualMachineWithConfigContext{}
 	this.Id = id
 	this.Url = url
@@ -70,7 +70,6 @@ func NewVirtualMachineWithConfigContext(id int32, url string, display string, na
 	this.Created = created
 	this.LastUpdated = lastUpdated
 	this.InterfaceCount = interfaceCount
-	this.VirtualDiskCount = virtualDiskCount
 	return &this
 }
 
@@ -1015,28 +1014,36 @@ func (o *VirtualMachineWithConfigContext) SetInterfaceCount(v int32) {
 	o.InterfaceCount = v
 }
 
-// GetVirtualDiskCount returns the VirtualDiskCount field value
+// GetVirtualDiskCount returns the VirtualDiskCount field value if set, zero value otherwise.
 func (o *VirtualMachineWithConfigContext) GetVirtualDiskCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.VirtualDiskCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.VirtualDiskCount
+	return *o.VirtualDiskCount
 }
 
-// GetVirtualDiskCountOk returns a tuple with the VirtualDiskCount field value
+// GetVirtualDiskCountOk returns a tuple with the VirtualDiskCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VirtualMachineWithConfigContext) GetVirtualDiskCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VirtualDiskCount) {
 		return nil, false
 	}
-	return &o.VirtualDiskCount, true
+	return o.VirtualDiskCount, true
 }
 
-// SetVirtualDiskCount sets field value
+// HasVirtualDiskCount returns a boolean if a field has been set.
+func (o *VirtualMachineWithConfigContext) HasVirtualDiskCount() bool {
+	if o != nil && !IsNil(o.VirtualDiskCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetVirtualDiskCount gets a reference to the given int32 and assigns it to the VirtualDiskCount field.
 func (o *VirtualMachineWithConfigContext) SetVirtualDiskCount(v int32) {
-	o.VirtualDiskCount = v
+	o.VirtualDiskCount = &v
 }
 
 func (o VirtualMachineWithConfigContext) MarshalJSON() ([]byte, error) {
@@ -1114,7 +1121,9 @@ func (o VirtualMachineWithConfigContext) ToMap() (map[string]interface{}, error)
 	toSerialize["created"] = o.Created.Get()
 	toSerialize["last_updated"] = o.LastUpdated.Get()
 	toSerialize["interface_count"] = o.InterfaceCount
-	toSerialize["virtual_disk_count"] = o.VirtualDiskCount
+	if !IsNil(o.VirtualDiskCount) {
+		toSerialize["virtual_disk_count"] = o.VirtualDiskCount
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -1137,7 +1146,6 @@ func (o *VirtualMachineWithConfigContext) UnmarshalJSON(data []byte) (err error)
 		"created",
 		"last_updated",
 		"interface_count",
-		"virtual_disk_count",
 	}
 
 	allProperties := make(map[string]interface{})
