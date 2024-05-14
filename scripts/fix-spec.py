@@ -66,6 +66,10 @@ data["components"]["schemas"]["NestedASN"] = {
     "required": ["asn", "display", "id", "url"],
 }
 
+# Fix required aggragted counters absent from server responses
+# Upstream Netbox issue: https://github.com/netbox-community/netbox/issues/14953
+data["components"]["schemas"]["Tag"]["required"] = [e for e in data["components"]["schemas"]["Tag"]["required"] if e != "tagged_items"]
+
 # Save the spec file
 with open(SPEC_PATH, 'w') as file:
     yaml.dump(data, file, Dumper=yaml.CDumper, sort_keys=False)

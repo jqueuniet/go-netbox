@@ -129794,7 +129794,6 @@ components:
       - last_updated
       - name
       - slug
-      - tagged_items
       - url
     TagRequest:
       type: object
