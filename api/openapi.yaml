@@ -131536,7 +131536,6 @@ components:
           nullable: true
       required:
       - created
-      - display
       - id
       - last_updated
       - name

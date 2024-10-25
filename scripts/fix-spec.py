@@ -100,6 +100,12 @@ data["components"]["schemas"]["DeviceRole"]["required"] = [e for e in data["comp
 data["components"]["schemas"]["DeviceType"]["required"] = [e for e in data["components"]["schemas"]["DeviceType"]["required"] if e not in MISSING_DEVICE_TYPE_FIELDS]
 data["components"]["schemas"]["Site"]["required"] = [e for e in data["components"]["schemas"]["Site"]["required"] if e not in MISSING_SITE_FIELDS]
 
+# Fix broken vdisk queries
+
+MISSING_VDISK_FIELDS = ("display",)
+
+data["components"]["schemas"]["VirtualDisk"]["required"] = [e for e in data["components"]["schemas"]["VirtualDisk"]["required"] if e not in MISSING_VDISK_FIELDS]
+
 # End fix for missing aggragted counters
 
 # Save the spec file
