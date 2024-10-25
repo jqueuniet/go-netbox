@@ -31,13 +31,13 @@ Name | Type | Description | Notes
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 **InterfaceCount** | **int32** |  | [readonly] 
-**VirtualDiskCount** | Pointer to **int32** |  | [optional] [readonly] 
+**VirtualDiskCount** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewVirtualMachineWithConfigContext
 
-`func NewVirtualMachineWithConfigContext(id int32, url string, display string, name string, primaryIp NullableNestedIPAddress, configContext interface{}, created NullableTime, lastUpdated NullableTime, interfaceCount int32, ) *VirtualMachineWithConfigContext`
+`func NewVirtualMachineWithConfigContext(id int32, url string, display string, name string, primaryIp NullableNestedIPAddress, configContext interface{}, created NullableTime, lastUpdated NullableTime, interfaceCount int32, virtualDiskCount int32, ) *VirtualMachineWithConfigContext`
 
 NewVirtualMachineWithConfigContext instantiates a new VirtualMachineWithConfigContext object
 This constructor will assign default values to properties that have it defined,
@@ -871,11 +871,6 @@ and a boolean to check if the value has been set.
 
 SetVirtualDiskCount sets VirtualDiskCount field to given value.
 
-### HasVirtualDiskCount
-
-`func (o *VirtualMachineWithConfigContext) HasVirtualDiskCount() bool`
-
-HasVirtualDiskCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: NetBox REST API
-  version: 3.7.7 (3.7)
+  version: 3.7.8 (3.7)
   license:
     name: Apache v2 License
 paths:
@@ -131727,6 +131727,7 @@ components:
       - name
       - primary_ip
       - url
+      - virtual_disk_count
     VirtualMachineWithConfigContextRequest:
       type: object
       description: Adds support for custom fields and tags.
